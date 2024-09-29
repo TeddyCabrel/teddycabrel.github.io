@@ -1,0 +1,31 @@
+Info Model mountain:
+
+* title:  Mountain And River Scroll
+* source:	https://sketchfab.com/3d-models/mountain-and-river-scroll-dd37769bdc0148a988535f893d01c551
+* author:	https://sketchfab.com/shahriyarshahrabi
+* Modified: This model has been modified by Teddy Cabrel Ekeu Mbouatchi
+*Licence: licensed under CC BY 4.0(Attribution 4.0 International).
+
+Info Model solar:
+
+* title:  Solar system planets scale
+* source:	https://sketchfab.com/3d-models/solar-system-planets-scale-1d790c7e712f4500b417e9c13639e79f
+* author:	https://sketchfab.com/engine9
+* Modified: This model has been modified by Teddy Cabrel Ekeu Mbouatchi
+*Licence: licensed under CC BY 4.0(Attribution 4.0 International).
+
+Info Model star:
+
+* title:  space boi
+* source:	https://sketchfab.com/3d-models/space-boi-f6a8c6a6727b4f2cb020c8b50bb2ee60
+* author:	https://sketchfab.com/silvercrow101
+* Modified: This model hasn't been modified
+*Licence: licensed under CC BY-NC 4.0(Attribution-NonCommercial 4.0 International).
+
+Info Model water:
+
+* title:  Submerged Era
+* source:	https://sketchfab.com/3d-models/submerged-era-e46a97e8ffff454f90ca5c5535e89090
+* author:	https://sketchfab.com/omarfaruqtawsif32
+* Modified: This model has been modified by Teddy Cabrel Ekeu Mbouatchi
+*Licence: licensed under CC BY 4.0(Attribution 4.0 International).
