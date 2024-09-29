@@ -129,7 +129,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
-renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 
 // Controls setup
@@ -223,7 +223,7 @@ moon.position.set(1.2, 0.5, -1);
 
 const sphereSun = new THREE.SphereGeometry(0.4, 32, 32);
 const sphereMaterialSun = new THREE.MeshStandardMaterial({
-    color: 0xFFA500,
+    color: 0x7a5401,
     side: THREE.DoubleSide
 });
 
