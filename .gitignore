@@ -24,6 +24,8 @@ node_modules
 *.iml
 *.ipr
 src/main/resources/application.properties
+mvnw
+mvnw.cmd
 
 ### NetBeans ###
 /nbproject/private/
