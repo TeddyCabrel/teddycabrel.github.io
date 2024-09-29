@@ -751,5 +751,3 @@ function enableCameraConstraints(controls) {
     controls.enableRotate = true;
 
 }
-sun.geometry.dispose();
-renderer.dispose();
