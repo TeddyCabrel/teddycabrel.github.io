@@ -908,6 +908,9 @@ section{
         left: 2%;
 
     }
+    .main-nav ul{
+        border-bottom: 0px;
+    }
 }
 
 
