@@ -1,3 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Track .mp4 files with Git LFS
 *.mp4 filter=lfs diff=lfs merge=lfs -text
