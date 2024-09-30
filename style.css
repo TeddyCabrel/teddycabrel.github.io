@@ -891,9 +891,7 @@ input[name="tab-control"]:nth-of-type(4):checked
         left: 2%;
 
     }
-    .main-nav ul{
-        border-bottom: 0px;
-    }
+    
 }
 
 
