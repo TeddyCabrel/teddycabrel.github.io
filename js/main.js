@@ -743,7 +743,7 @@ function disableCameraConstraints(controls) {
 }
 function enableCameraConstraints(controls) {
 
-    controls.minAzimuthAngle = -40 * (Math.PI / 180);
+    controls.minAzimuthAngle = -30 * (Math.PI / 180);
     controls.maxAzimuthAngle = -10 * (Math.PI / 180);
     controls.minPolarAngle = Math.PI / 3;
     controls.maxPolarAngle = Math.PI / 2.25;
