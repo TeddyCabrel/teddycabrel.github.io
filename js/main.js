@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
     function Project() {
-
+        resetnom()
         disableCameraConstraints(controls)
         allprojet.style.pointerEvents="auto"
         disableLink()
