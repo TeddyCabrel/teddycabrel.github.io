@@ -763,10 +763,8 @@ function handleScreenChange(e) {
     }
 }
 
-// Initial check
 handleScreenChange(mediaQuery);
 
-// Listen for changes in screen size
 mediaQuery.addListener(handleScreenChange);
 
 window.addEventListener('load', () => handleScreenChange(mediaQuery));
