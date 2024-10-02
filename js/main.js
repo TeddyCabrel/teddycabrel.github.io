@@ -751,3 +751,20 @@ function enableCameraConstraints(controls) {
     controls.enableRotate = true;
 
 }
+const mediaQuery = window.matchMedia('(max-width: 600px)');
+
+function handleScreenChange(e) {
+    if (e.matches) {
+        scene.remove(solar); 
+    } else {
+        if (!scene.children.includes(solar)) {
+            scene.add(solar); 
+        }
+    }
+}
+
+// Initial check
+handleScreenChange(mediaQuery);
+
+// Listen for changes in screen size
+mediaQuery.addListener(handleScreenChange);
