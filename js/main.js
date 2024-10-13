@@ -379,31 +379,31 @@ document.addEventListener('DOMContentLoaded', function() {
                                             opacity: 0.3,
                                             zIndex: 500,
                                             ease: "power1.inOut",
-                                            duration:0.1
+                                            
                                         })
                                         gsap.to(poissonA,{
                                             opacity: 1,
                                             zIndex: 400,
                                             ease: "power1.inOut",
-                                            duration:0.2
+
                                         })
                                         gsap.to(poissonB,{
                                             opacity: 1,
                                             zIndex: 400,
                                             ease: "power1.inOut",
-                                            duration:0.3
+
                                         })
                                         gsap.to(poissonC,{
                                             opacity: 1,
                                             zIndex: 402,
                                             ease: "power1.inOut",
-                                            duration:0.4
+
                                         })
                                         gsap.to(coral,{
                                             opacity: 1,
                                             zIndex: 401,
                                             ease: "power1.inOut",
-                                            duration:0.2
+
                                         })
                                     }
 
@@ -609,11 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     onComplete: function(){
                         enableLink()
-                        Contact.style.pointerEvents="none"
-                        controls.minPolarAngle = Math.PI / 3;
-                        controls.maxPolarAngle = Math.PI / 2.50;
-                        controls.enableZoom =false;
-                        controls.enableRotate = true;
+                        enableCameraConstraints(controls)
 
 
                     }
@@ -755,16 +751,19 @@ const mediaQuery = window.matchMedia('(max-width: 600px)');
 
 function handleScreenChange(e) {
     if (e.matches) {
-        scene.remove(solar); 
+        scene.remove(solar);
     } else {
         if (!scene.children.includes(solar)) {
-            scene.add(solar); 
+            scene.add(solar);
         }
     }
 }
 
+
 handleScreenChange(mediaQuery);
 
-mediaQuery.addListener(handleScreenChange);
 
+mediaQuery.addEventListener('change', handleScreenChange);
+
+window.addEventListener('resize', () => handleScreenChange(mediaQuery));
 window.addEventListener('load', () => handleScreenChange(mediaQuery));

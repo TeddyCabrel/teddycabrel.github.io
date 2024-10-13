@@ -10,11 +10,12 @@
 
 html,
 body {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
     overflow: hidden;
+    background-color: black;
 
 }
 #progress-bar{
@@ -97,7 +98,13 @@ progress {background-color: #3e653e;}
     font-family: "IM Fell English SC", serif;
     font-weight: 400;
     padding-top: 10px;
+    text-decoration: underline;
+    text-decoration-color:darkgreen ;
     text-align: center;
+
+}
+.video-text h1:hover {
+    color: blueviolet;
 
 }
 .video-text h3{
@@ -105,6 +112,7 @@ progress {background-color: #3e653e;}
     padding-left: 10px;
     letter-spacing: 1.5px;
     line-height: 2;
+    text-align: center;
 }
 .video-text ul{
     padding-top: 20px;
@@ -130,7 +138,7 @@ progress {background-color: #3e653e;}
     left: 0;
     width: 100%;
     height: 100%;
-    filter: saturate(0) blur(2px);
+    filter: saturate(0);
     border-radius: 30px;
     border: darkgrey 5px solid;
 }
@@ -180,33 +188,38 @@ progress {background-color: #3e653e;}
 
 
 
+
 }
 .video-popup video{
     position: absolute;
-    top: 50%;
+    top: 28%;
     left: 50%;
+    height: 50%;
     transform: translate(-50%,-50%);
     width: 750px;
     border-radius: 5px;
     border: 3px solid white;
     object-fit: cover;
+    box-shadow: 0 8px 16px rgb(255, 255, 255);
 }
 .video-popup .descriptionProjet{
     position: absolute;
-    top: 75%;
+    top: 55%;
     left:16%;
     width: 70%;
-    height: 20%;
+    height: 40%;
     border-radius: 8px;
-    border: 5px solid white;
+    border: 5px solid #000000;
     overflow-y: scroll;
+    box-shadow: inset 2px 8px 16px rgb(255, 255, 255);
+    backdrop-filter: blur(9px);
 
 }
 
 .video-popup span{
     position: absolute;
-    top: 100px;
-    right: 150px;
+    top: 30px;
+    right: 30px;
     color: white;
     cursor: pointer;
     font-weight: bolder;
@@ -214,22 +227,8 @@ progress {background-color: #3e653e;}
     z-index: inherit;
 }
 
-header::after {
-    content: "";
-    clear: both;
-    display: block;
-    overflow-y: hidden;
-}
 
 
-
-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-}
 
 
 .wrapper {
@@ -239,8 +238,9 @@ header {
     height: 50px;
     margin-top: 10px;
     position: absolute;
+
     width: 100vw;
-    border-radius: 10px;
+
 }
 
 .main-nav ul {
@@ -864,6 +864,11 @@ input[name="tab-control"]:nth-of-type(4):checked
     .tabs .slider .indicator{
         display: none;
     }
+    .video-popup .descriptionProjet{
+        width: 90%;
+        left: 5%;
+
+    }
 
 }
 @media screen and (max-width: 600px) {
@@ -872,26 +877,42 @@ input[name="tab-control"]:nth-of-type(4):checked
 
         top: 65px;
     }
-    .video-popup .descriptionProjet{
-        width: 95%;
-        height: 30%;
-        top: 69%;
-        left: 2%;
+    .video-popup video{
+        height: 35%;
+    }
 
+    .main-nav ul{
+        border-bottom: 0px;
+    }
+
+
+}
+@media screen and (max-width: 800px) {
+
+    .logo {
+
+        top: 65px;
+    }
+    .video-popup span{
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        color: white;
+        cursor: pointer;
+        font-weight: bolder;
+        font-size: 50px;
+        z-index: inherit;
+    }
+
+    .main-nav ul{
+        border-bottom: 0px;
     }
 
 
 }
 @media screen and (max-width: 450px) {
 
-    .video-popup .descriptionProjet{
-        width: 95%;
-        height: 30%;
-        top: 69%;
-        left: 2%;
 
-    }
-    
 }
 
 
