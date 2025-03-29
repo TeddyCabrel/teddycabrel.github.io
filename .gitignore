@@ -19,7 +19,6 @@ pom.xml
 .mvn
 src/test
 src/main/java
-node_modules
 *.iws
 *.iml
 *.ipr
