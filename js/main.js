@@ -1,11 +1,12 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.module.js';
-import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.153.0/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.153.0/examples/jsm/controls/OrbitControls.js';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 
 const canvas = document.querySelector('.canvas');
 const scene = new THREE.Scene();
-
+let star = null;
+let solar = null;
 let about_1;
 let about_2;
 let nom;
@@ -20,7 +21,7 @@ let skill;
 let aboutMe;
 let Home;
 let project;
-let star;
+
 let Contact;
 let video_popup
 let project1;
@@ -30,7 +31,7 @@ let project4;
 let allprojet;
 let nav;
 let contactContainer;
-let solar;
+
 skill = document.querySelector('.skill')
 water = document.querySelector('.water')
 description = document.querySelector('.description')
@@ -186,16 +187,22 @@ loader.load(
     },
 
 );
+
 loader.load(
     'assets/star.glb',
     function (gbl){
-         star = gbl.scene;
-        star.scale.set(0.04, 0.04, 0.04)
-        star.position.set(2.5, 0.75, -2.3)
-        scene.add(star);
-
-
-
+        if (gbl && gbl.scene) {
+            star = gbl.scene;
+            star.scale.set(0.04, 0.04, 0.04);
+            star.position.set(2.5, 0.75, -2.3);
+            scene.add(star);
+        } else {
+            console.error("Erreur : star.scene est undefined", gbl);
+        }
+    },
+    undefined,
+    function (error) {
+        console.error("Erreur de chargement de star.glb :", error);
     }
 );
 
