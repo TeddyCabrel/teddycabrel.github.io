@@ -71,7 +71,7 @@ const loader = new GLTFLoader(loadingManager);
 
 
 loader.load(
-    '/assets/mountain.glb',
+    '/mountain.glb',
     function (glb) {
         console.log(glb);
 
@@ -174,7 +174,7 @@ function animate() {
 animate();
 
 loader.load(
-    '/assets/water.glb',
+    '/water.glb',
     function (glb) {
          const waterBoat = glb.scene;
         waterBoat.scale.set(1,1, 1);
@@ -188,7 +188,7 @@ loader.load(
 );
 
 loader.load(
-    'assets/star.glb',
+    'star.glb',
     function (gbl){
         if (gbl && gbl.scene) {
             star = gbl.scene;
@@ -206,7 +206,7 @@ loader.load(
 );
 
 loader.load(
-    'assets/solar.glb',
+    'solar.glb',
     function(glb){
         solar = glb.scene;
         solar.scale.set(1, 1, 1)

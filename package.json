@@ -4,7 +4,8 @@
   "main": "main.js",
   "scripts": {
     "start": "vite",
-    "build": "vite build"
+    "build": "npx vite build",
+    "deploy":"vercel --prod"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "description": "",
   "dependencies": {
     "three": "^0.174.0",
+    "vercel": "^41.4.1",
     "vite": "^6.2.3"
   }
 }
