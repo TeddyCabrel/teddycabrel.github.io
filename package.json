@@ -5,7 +5,7 @@
   "scripts": {
     "start": "vite",
     "build": "npx vite build",
-    "deploy":"vercel --prod"
+    "deploy": "vercel --prod"
   },
   "keywords": [],
   "author": "",

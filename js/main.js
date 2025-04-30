@@ -4,16 +4,13 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 
 const canvas = document.querySelector('.canvas');
 const scene = new THREE.Scene();
-let star = null;
-let solar = null;
+let star;
+let solar;
 let about_1;
 let about_2;
 let nom;
 let description;
-let poissonA;
-let poissonB ;
-let poissonC;
-let coral ;
+
 let water ;
 let tabs;
 let skill;
@@ -37,11 +34,7 @@ description = document.querySelector('.description')
 nom = document.querySelector('.nom')
 about_1 = document.querySelector('.about-1')
 about_2 = document.querySelector('.about-2')
-poissonA = document.querySelector('.poissonA')
-poissonB = document.querySelector('.poissonB')
-poissonC = document.querySelector('.poissonC')
 tabs = document.querySelector('.tabs')
-coral = document.querySelector('.coral')
 aboutMe  = document.querySelector('.aboutMe')
 Home = document.querySelector('.Home')
 project = document.querySelector('.project')
@@ -209,7 +202,7 @@ loader.load(
     'solar.glb',
     function(glb){
         solar = glb.scene;
-        solar.scale.set(1, 1, 1)
+        solar.scale.set(1.3, 1.3, 1.3)
         solar.position.set(1.7, 0.72,-1.7);
         scene.add(solar);
 
@@ -227,26 +220,44 @@ const moon = new THREE.Mesh(sphereGeometry, sphereMaterial);
 moon.position.set(1.2, 0.5, -1);
 
 
+scene.add(moon);
+
+
 const sphereSun = new THREE.SphereGeometry(0.4, 32, 32);
-const sphereMaterialSun = new THREE.MeshStandardMaterial({
-    color: 0xFFA500,
-    side: THREE.DoubleSide
+
+
+
+// Outer surface (sun-like)
+const outerMaterial = new THREE.MeshStandardMaterial({
+    color: 0xff4500,
+    emissive: 0xff8c00,
+    emissiveIntensity: 1,
+    side: THREE.FrontSide
 });
+const outerSun = new THREE.Mesh(sphereSun, outerMaterial);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+// Inner surface (black)
+const innerMaterial = new THREE.MeshStandardMaterial({
+    color: 0x000000,
+    side: THREE.BackSide
+});
+const innerSun = new THREE.Mesh(sphereSun, innerMaterial);
 
+// Group both meshes under one object named `sun`
+const sun = new THREE.Group();
+sun.add(outerSun);
+sun.add(innerSun);
 
-scene.add(ambientLight);
+// Set the same position as before
+sun.position.set(-1.59, 0.52, -1.7);
 
-const sun = new THREE.Mesh(sphereSun, sphereMaterialSun);
+// Add to the scene
+scene.add(sun);
 
 
 sun.position.set(-1.59, 0.52,-1.7);
 
 
-
-scene.add(moon);
-scene.add(sun);
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -335,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resetnom()
         disableCameraConstraints(controls)
         disableLink();
-        resetElement(about_2, about_1, coral, poissonA, water,poissonB,poissonC,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1, water,tabs,project1,project2,project3,project4,contactContainer);
 
         gsap.to(about_1, {
 
@@ -375,46 +386,22 @@ document.addEventListener('DOMContentLoaded', function() {
                             ease: "power1.inOut",
                             onComplete: () => {
                                 gsap.to(camera.position,{
-                                    duration: 1.5,
-                                    x: -0.4054974548754952,
-                                    y: 0.10216597577960831,
-                                    z: 0.6479472807665938,
+                                    duration: 0.8,
+                                    x: -0.3002540965009573,
+                                    y: 0.09999898635828426,
+                                    z: 0.6607309239446485,
                                     ease: "power1.inOut",
-                                    onUpdate:()=> {
-                                        gsap.to(water,{
-                                            opacity: 0.3,
-                                            zIndex: 500,
-                                            ease: "power1.inOut",
-                                            
-                                        })
-                                        gsap.to(poissonA,{
-                                            opacity: 1,
-                                            zIndex: 400,
-                                            ease: "power1.inOut",
 
-                                        })
-                                        gsap.to(poissonB,{
-                                            opacity: 1,
-                                            zIndex: 400,
-                                            ease: "power1.inOut",
-
-                                        })
-                                        gsap.to(poissonC,{
-                                            opacity: 1,
-                                            zIndex: 402,
-                                            ease: "power1.inOut",
-
-                                        })
-                                        gsap.to(coral,{
-                                            opacity: 1,
-                                            zIndex: 401,
-                                            ease: "power1.inOut",
-
-                                        })
-                                    }
-
-                                })
-                            }
+                                }),
+                                gsap.to(water,{
+                                    duration: 0.8,
+                                        opacity: 0.3,
+                                        zIndex: 500,
+                                        ease: "power1.inOut",
+                                        
+                                    })
+                               
+                            },
                         })
                     }
                 });
@@ -456,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
         disableCameraConstraints(controls)
         disableLink()
 
-        resetElement(about_2, about_1, coral, poissonA, water,poissonB,poissonC,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1,water,tabs,project1,project2,project3,project4,contactContainer);
 
         gsap.to(camera.position, {
             duration: 1.5,
@@ -492,8 +479,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     onComplete: () => {
 
-                        enableLink()
-                        skill.style.pointerEvents="none";
+                        disableLink()
+                        Home.style.pointerEvents="auto"
 
 
                     }
@@ -504,12 +491,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     }
+
     function Project() {
         resetnom()
         disableCameraConstraints(controls)
         allprojet.style.pointerEvents="auto"
         disableLink()
-        resetElement(about_2, about_1, coral, poissonA, water,poissonB,poissonC,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1,water,tabs,project1,project2,project3,project4,contactContainer);
         gsap.to(camera.position, {
             duration: 1.5,
             x: -2.784138754994846,
@@ -570,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
         allprojet.style.pointerEvents="none"
         disableLink()
 
-        resetElement(about_2, about_1, coral, poissonA, water,poissonB,poissonC,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1,water,tabs,project1,project2,project3,project4,contactContainer);
         gsap.to(nom, {
             duration: 1.2,
             ease: "power2.out",
@@ -596,7 +584,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function contact(){
         disableCameraConstraints(controls)
-        resetElement(about_2, about_1, coral, poissonA, water,poissonB,poissonC,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1,  water,tabs,project1,project2,project3,project4,contactContainer);
 
         disableLink()
         gsap.to(camera.position, {
@@ -605,19 +593,18 @@ document.addEventListener('DOMContentLoaded', function() {
             y: 2.1119286194241087,
             z: 1.231499443300437,
             onComplete: function () {
-                contactContainer.style.zIndex=100;
-                contactContainer.style.opacity=1;
+                
                 gsap.to(camera.position, {
-                    duration: 2,
-                    x:-0.7624899495124199,
-                    y:0.8585177155851387,
-                    z:2.806952759293429,
+                    duration: 1,
+                    x:0.6304116666715603,
+                    y:0.26099547792925226,
+                    z:0.7387715983954873,
 
                     onComplete: function(){
                         enableLink()
-                        enableCameraConstraints(controls)
-
-
+                        contactContainer.style.zIndex=100;
+                        contactContainer.style.opacity=1;contactContainer.style.zIndex=100;
+                        contactContainer.style.opacity=1;
                     }
                 });
                 resetnom()
@@ -654,7 +641,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-
+controls.addEventListener('change', () => {
+    console.log(`Camera position: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
+});
 window.addEventListener('resize', () => {
     sizes.width = window.innerWidth;
     sizes.height = window.innerHeight;
