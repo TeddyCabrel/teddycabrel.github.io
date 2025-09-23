@@ -5,13 +5,13 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 const canvas = document.querySelector('.canvas');
 const scene = new THREE.Scene();
 let star;
-let solar;
+
 let about_1;
 let about_2;
 let nom;
 let description;
 
-let water ;
+let water;
 let tabs;
 let skill;
 let aboutMe;
@@ -35,15 +35,15 @@ nom = document.querySelector('.nom')
 about_1 = document.querySelector('.about-1')
 about_2 = document.querySelector('.about-2')
 tabs = document.querySelector('.tabs')
-aboutMe  = document.querySelector('.aboutMe')
+aboutMe = document.querySelector('.aboutMe')
 Home = document.querySelector('.Home')
 project = document.querySelector('.project')
 Contact = document.querySelector('.contact')
 video_popup = document.querySelectorAll('.video-popup')
-project1 =document.querySelector('.project1')
-project2 =document.querySelector('.project2')
-project3 =document.querySelector('.project3')
-project4 =document.querySelector('.project4')
+project1 = document.querySelector('.project1')
+project2 = document.querySelector('.project2')
+project3 = document.querySelector('.project3')
+project4 = document.querySelector('.project4')
 allprojet = document.querySelector('.allProject')
 contactContainer = document.querySelector('.contactContainer')
 
@@ -51,14 +51,14 @@ contactContainer = document.querySelector('.contactContainer')
 
 const loadingManager = new THREE.LoadingManager();
 const progressBar = document.getElementById('progress-bar');
-loadingManager.onProgress = function(url, loaded, total){
-    progressBar.value = (loaded/total)*100;
+loadingManager.onProgress = function (url, loaded, total) {
+    progressBar.value = (loaded / total) * 100;
 }
 const button = document.querySelector('.startButton');
 const progressBarContainer = document.querySelector('.progress-bar-container')
-loadingManager.onLoad = function(){
-    progressBarContainer.style.display='none';
-    button.style.zIndex=100;
+loadingManager.onLoad = function () {
+    progressBarContainer.style.display = 'none';
+    button.style.zIndex = 100;
 }
 const loader = new GLTFLoader(loadingManager);
 
@@ -87,17 +87,17 @@ loader.load(
             }
         });
     },
-   /*
-    function (xhr) {
-        // While it is loading, log the progress
-        console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-    },
-    function (error) {
-
-        console.error(error);
-    }
-
-    */
+    /*
+     function (xhr) {
+         // While it is loading, log the progress
+         console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+     },
+     function (error) {
+ 
+         console.error(error);
+     }
+ 
+     */
 );
 
 
@@ -108,7 +108,7 @@ const sizes = {
 };
 
 // Camera setup
- const camera = new THREE.PerspectiveCamera(90, sizes.width / sizes.height, 0.1, 100);
+const camera = new THREE.PerspectiveCamera(90, sizes.width / sizes.height, 0.1, 100);
 camera.position.set(-0.4821222362151634, 0.4895597488347424, 2.7342510730804914);
 //camera.position.set(-0.9295392986346949, 0.92666112915394, 2.4950942613422384);
 scene.add(camera);
@@ -138,7 +138,7 @@ controls.addEventListener('change', () => {
 
 
 
-controls.enableZoom =false;
+controls.enableZoom = false;
 controls.enableRotate = false;
 
 controls.enablePan = false;
@@ -156,9 +156,7 @@ function animate() {
     if (star) {
         star.rotation.y += 0.004;
     }
-    if (solar) {
-        solar.rotation.y += 0.003;
-    }
+
 
 
     renderer.render(scene, camera);
@@ -169,9 +167,9 @@ animate();
 loader.load(
     '/water.glb',
     function (glb) {
-         const waterBoat = glb.scene;
-        waterBoat.scale.set(1,1, 1);
-        waterBoat.position.set(-0.47, 0.01,0.32);
+        const waterBoat = glb.scene;
+        waterBoat.scale.set(1, 1, 1);
+        waterBoat.position.set(-0.47, 0.01, 0.32);
         scene.add(waterBoat);
 
 
@@ -182,7 +180,7 @@ loader.load(
 
 loader.load(
     'star.glb',
-    function (gbl){
+    function (gbl) {
         if (gbl && gbl.scene) {
             star = gbl.scene;
             star.scale.set(0.04, 0.04, 0.04);
@@ -198,16 +196,6 @@ loader.load(
     }
 );
 
-loader.load(
-    'solar.glb',
-    function(glb){
-        solar = glb.scene;
-        solar.scale.set(1.3, 1.3, 1.3)
-        solar.position.set(1.7, 0.72,-1.7);
-        scene.add(solar);
-
-    }
-)
 
 const sphereGeometry = new THREE.SphereGeometry(0.5, 32, 100);
 const sphereMaterial = new THREE.MeshStandardMaterial({
@@ -236,17 +224,11 @@ const outerMaterial = new THREE.MeshStandardMaterial({
 });
 const outerSun = new THREE.Mesh(sphereSun, outerMaterial);
 
-// Inner surface (black)
-const innerMaterial = new THREE.MeshStandardMaterial({
-    color: 0x000000,
-    side: THREE.BackSide
-});
-const innerSun = new THREE.Mesh(sphereSun, innerMaterial);
 
 // Group both meshes under one object named `sun`
 const sun = new THREE.Group();
 sun.add(outerSun);
-sun.add(innerSun);
+
 
 // Set the same position as before
 sun.position.set(-1.59, 0.52, -1.7);
@@ -255,11 +237,11 @@ sun.position.set(-1.59, 0.52, -1.7);
 scene.add(sun);
 
 
-sun.position.set(-1.59, 0.52,-1.7);
+sun.position.set(-1.59, 0.52, -1.7);
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
 
     function hideButton() {
@@ -273,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
         gsap.to(description, {
             duration: 0.5,
             opacity: 0,
-            
+
         });
         gsap.to(nom, {
             duration: 2,
@@ -286,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
         gsap.to(nav, {
             duration: 2,
             opacity: 1,
-            display:'flex',
+            display: 'flex',
 
         });
 
@@ -313,15 +295,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-                gsap.to(sun.position,
-                    {
-                        x: 1.7,
-                        y:0.72,
-                        z: -1.7,
-                        duration: 1.5,
-                        ease: "power1.out"
-                    }
-                );
+        gsap.to(sun.position,
+            {
+                x: 1.7,
+                y: 0.72,
+                z: -1.7,
+                duration: 1.5,
+                ease: "power1.out"
+            }
+        );
         gsap.to(moon.scale, {
             x: 0.8,
             y: 0.8,
@@ -342,24 +324,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
-    function aboutSection(){
+    function aboutSection() {
         resetnom()
         disableCameraConstraints(controls)
         disableLink();
-        resetElement(about_2, about_1, water,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
 
         gsap.to(about_1, {
 
-            opacity:0,
-            duration:0.2,
-            zIndex:100
+            opacity: 0,
+            duration: 0.2,
+            zIndex: 100
 
         });
         gsap.to(about_2, {
 
-            opacity:0,
-            duration:0.2,
-            zIndex:100
+            opacity: 0,
+            duration: 0.2,
+            zIndex: 100
 
         });
 
@@ -378,14 +360,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     z: 0.3277700385102677,
                     ease: "power1.inOut",
                     onComplete: () => {
-                        gsap.to(camera.position,{
-                            duration:4.5,
+                        gsap.to(camera.position, {
+                            duration: 4.5,
                             x: -0.42778302893296566,
                             y: 0.2535615434948193,
                             z: 0.6157922989252962,
                             ease: "power1.inOut",
                             onComplete: () => {
-                                gsap.to(camera.position,{
+                                gsap.to(camera.position, {
                                     duration: 0.8,
                                     x: -0.3002540965009573,
                                     y: 0.09999898635828426,
@@ -393,36 +375,36 @@ document.addEventListener('DOMContentLoaded', function() {
                                     ease: "power1.inOut",
 
                                 }),
-                                gsap.to(water,{
-                                    duration: 0.8,
+                                    gsap.to(water, {
+                                        duration: 0.8,
                                         opacity: 0.3,
                                         zIndex: 500,
                                         ease: "power1.inOut",
-                                        
+
                                     })
-                               
+
                             },
                         })
                     }
                 });
                 gsap.to(about_1, {
                     duration: 1,
-                    opacity:1,
+                    opacity: 1,
                     ease: "power2.out",
-                    delay:6,
+                    delay: 6,
                     onComplete: () => {
 
                         enableLink()
-                        aboutMe.style.pointerEvents="none";
+                        aboutMe.style.pointerEvents = "none";
 
 
                     }
                 });
                 gsap.to(about_2, {
                     duration: 1,
-                    opacity:1,
+                    opacity: 1,
                     ease: "power2.out",
-                    delay:2,
+                    delay: 2,
 
 
                 });
@@ -438,31 +420,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     }
-    function Skill(){
+    function Skill() {
         resetnom()
         disableCameraConstraints(controls)
         disableLink()
 
-        resetElement(about_2, about_1,water,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
 
         gsap.to(camera.position, {
-            duration: 1.5,
-            x: 0.14094358206177665,
-            y: 1.8739808607189183,
-            z: 2.0213191744071755,
+            
             onComplete: () => {
 
                 gsap.to(camera.position, {
                     duration: 1.5,
-                    x: 1.9913388251940596,
-                    y: 0.776568144585013,
-                    z:-1.935587161541752,
+                    x: -0.7471349012448287,
+                    y:0.39891586891004516,
+                    z: 2.6664456901900637,
                     ease: "power1.inOut",
-                    onComplete:()=>{
-                        gsap.to(tabs,{
-                            opacity:1,
-                            zIndex: 100,
-                            duration:1,
+                    onComplete: () => {
+                        gsap.to(tabs, {
+                            opacity: 1,
+                            zIndex: 200,
+                            ease: "power3.out",
+                            duration: 0.1,
 
 
 
@@ -472,15 +452,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 gsap.to(about_1, {
                     duration: 1,
-                    opacity:0,
+                    opacity: 0,
                     ease: "power2.out",
-                    delay:2,
-                    zIndex:-100,
+                    delay: 2,
+                    zIndex: -100,
 
                     onComplete: () => {
 
-                        disableLink()
-                        Home.style.pointerEvents="auto"
+                        enableLink()
+                        skill.style.pointerEvents="none"
+                        Home.style.pointerEvents = "auto"
 
 
                     }
@@ -495,9 +476,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function Project() {
         resetnom()
         disableCameraConstraints(controls)
-        allprojet.style.pointerEvents="auto"
+        allprojet.style.pointerEvents = "auto"
         disableLink()
-        resetElement(about_2, about_1,water,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
         gsap.to(camera.position, {
             duration: 1.5,
             x: -2.784138754994846,
@@ -508,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     duration: 1,
                     x: 2.0421093532892236,
                     y: 0.8346531146025703,
-                    z:-2.9994652277662066,
+                    z: -2.9994652277662066,
                     onComplete: function () {
                         gsap.to(camera.position, {
                             duration: 1,
@@ -519,34 +500,34 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
 
 
-                        gsap.to(project1,{
-                            delay:1.2,
-                            zIndex:500,
-                            opacity:1,
+                        gsap.to(project1, {
+                            delay: 1.2,
+                            zIndex: 500,
+                            opacity: 1,
 
                         })
-                        gsap.to(project2,{
-                            delay:1.3,
-                            zIndex:500,
-                            opacity:1,
+                        gsap.to(project2, {
+                            delay: 1.3,
+                            zIndex: 500,
+                            opacity: 1,
 
                         })
-                        gsap.to(project3,{
-                            delay:1.4,
-                            zIndex:500,
-                            opacity:1
+                        gsap.to(project3, {
+                            delay: 1.4,
+                            zIndex: 500,
+                            opacity: 1
                         })
-                        gsap.to(project4,{
-                            delay:1.5,
-                            zIndex:500,
-                            opacity:1,
-                            onComplete: function (){
+                        gsap.to(project4, {
+                            delay: 1.5,
+                            zIndex: 500,
+                            opacity: 1,
+                            onComplete: function () {
 
-                                Home.style.pointerEvents="auto"
+                                Home.style.pointerEvents = "auto"
                             }
                         })
                         disableLink()
-                        project.style.pointerEvents="none"
+                        project.style.pointerEvents = "none"
                     }
                 });
             }
@@ -554,16 +535,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
-    function showHome(){
-        allprojet.style.pointerEvents="none"
+    function showHome() {
+        allprojet.style.pointerEvents = "none"
         disableLink()
 
-        resetElement(about_2, about_1,water,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
         gsap.to(nom, {
             duration: 1.2,
             ease: "power2.out",
-            opacity:1,
-            zIndex:100
+            opacity: 1,
+            zIndex: 100
         });
         gsap.to(camera.position, {
             duration: 1.5,
@@ -577,14 +558,14 @@ document.addEventListener('DOMContentLoaded', function() {
             onComplete: function () {
                 enableCameraConstraints(controls)
                 enableLink()
-                Home.style.pointerEvents="none";
+                Home.style.pointerEvents = "none";
             },
             ease: "power1.inOut"
         });
     }
-    function contact(){
+    function contact() {
         disableCameraConstraints(controls)
-        resetElement(about_2, about_1,  water,tabs,project1,project2,project3,project4,contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
 
         disableLink()
         gsap.to(camera.position, {
@@ -593,18 +574,18 @@ document.addEventListener('DOMContentLoaded', function() {
             y: 2.1119286194241087,
             z: 1.231499443300437,
             onComplete: function () {
-                
+
                 gsap.to(camera.position, {
                     duration: 1,
-                    x:0.6304116666715603,
-                    y:0.26099547792925226,
-                    z:0.7387715983954873,
+                    x: -1.159852245667113,
+                    y:2.2706500670327934,
+                    z:4.225115805671679,
 
-                    onComplete: function(){
+                    onComplete: function () {
                         enableLink()
-                        contactContainer.style.zIndex=100;
-                        contactContainer.style.opacity=1;contactContainer.style.zIndex=100;
-                        contactContainer.style.opacity=1;
+                        contactContainer.style.zIndex = 100;
+                        contactContainer.style.opacity = 1; contactContainer.style.zIndex = 100;
+                        contactContainer.style.opacity = 1;
                     }
                 });
                 resetnom()
@@ -623,18 +604,18 @@ document.addEventListener('DOMContentLoaded', function() {
         aboutMe.addEventListener('click', aboutSection);
     }
     const mySkill = document.querySelector('.skill')
-    if(mySkill){
+    if (mySkill) {
         mySkill.addEventListener('click', Skill);
     }
 
-    if(Home){
+    if (Home) {
         Home.addEventListener('click', showHome);
     }
     if (project) {
         project.addEventListener('click', Project);
     }
-    if(Contact){
-        Contact.addEventListener('click',contact);
+    if (Contact) {
+        Contact.addEventListener('click', contact);
     }
 
 
@@ -667,30 +648,30 @@ function resetElement(...elements) {
         });
     });
 }
-function resetnom(){
+function resetnom() {
     gsap.to(nom, {
         duration: 1,
-        opacity:0,
+        opacity: 0,
         ease: "power2.out",
-        zIndex:-100
+        zIndex: -100
 
     });
 }
 
-function disableLink(){
+function disableLink() {
     aboutMe.style.pointerEvents = "none";
-    skill.style.pointerEvents="none";
-    Home.style.pointerEvents="none";
-    project.style.pointerEvents="none";
-    Contact.style.pointerEvents="none"
+    skill.style.pointerEvents = "none";
+    Home.style.pointerEvents = "none";
+    project.style.pointerEvents = "none";
+    Contact.style.pointerEvents = "none"
 }
 
-function enableLink(){
+function enableLink() {
     aboutMe.style.pointerEvents = "auto";
-    skill.style.pointerEvents="auto"
-    Home.style.pointerEvents="auto"
-    project.style.pointerEvents="auto"
-    Contact.style.pointerEvents="auto"
+    skill.style.pointerEvents = "auto"
+    Home.style.pointerEvents = "auto"
+    project.style.pointerEvents = "auto"
+    Contact.style.pointerEvents = "auto"
 }
 
 
@@ -710,9 +691,9 @@ document.querySelectorAll('.allProject .videoholder').forEach(img => {
 
 
 
-document.querySelector('span').onclick=()=>{
+document.querySelector('span').onclick = () => {
     document.querySelector('.video-popup').style.display = 'none';
-    Home.style.pointerEvents="auto"
+    Home.style.pointerEvents = "auto"
 }
 
 function disableCameraConstraints(controls) {
@@ -724,7 +705,7 @@ function disableCameraConstraints(controls) {
     controls.minDistance = 0;
     controls.maxDistance = Infinity;
 
-    controls.enableZoom =false;
+    controls.enableZoom = false;
     controls.enableRotate = false;
 
     controls.enablePan = false;
@@ -734,13 +715,17 @@ function disableCameraConstraints(controls) {
 }
 function enableCameraConstraints(controls) {
 
-    controls.minAzimuthAngle = -30 * (Math.PI / 180);
-    controls.maxAzimuthAngle = -10 * (Math.PI / 180);
-    controls.minPolarAngle = Math.PI / 3;
-    controls.maxPolarAngle = Math.PI / 2.25;
-    controls.enableZoom =false;
+    controls.minAzimuthAngle = -Infinity;
+    controls.maxAzimuthAngle = Infinity;
+    controls.minPolarAngle = 0;
+    controls.maxPolarAngle = Math.PI;
+    controls.minDistance = 0;
+    controls.maxDistance = Infinity;
+
+    controls.enableZoom = true;
     controls.enableRotate = true;
 
+    controls.enablePan = true;
 }
 const mediaQuery = window.matchMedia('(max-width: 600px)');
 
@@ -754,7 +739,7 @@ function handleScreenChange(e) {
     }
 }
 
-
+//Camera position: x=-1.4973069071497678, y=3.7856306672557234, z=4.5081692065007335
 handleScreenChange(mediaQuery);
 
 
