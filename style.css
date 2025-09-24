@@ -386,9 +386,10 @@ progress {
 
 
 .allCard {
+    
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     object-fit: contain;
     
 }
@@ -409,18 +410,20 @@ progress {
     font-style: normal;
     border: solid 3px black;
     border-radius: 4px;
- 
+    perspective: 1000px;
 
 
 }
 
 .card:hover {
     backdrop-filter: blur(30px);
-    transition: ease-in-out 0.5s;
-    transform:  scale(1.05);
+    transition: ease-in-out 0.3s;
+    transform:  scale(1.2) ;
     border: #000000 solid 4.8px;
-    background-color: #55838d;
+    background: linear-gradient(to bottom, #679f69, #56b4d4);
+ 
     color: white;
+    z-index: 4;
 }
 
 .logoProg {
@@ -461,7 +464,7 @@ progress {
     position: absolute;
     left: 50%;
     top: 20%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 0%);
    
   
     padding: 40px 50px 80px;
@@ -687,15 +690,15 @@ progress {
 .contactContainer {
     display: flex;
     justify-content: center;
-
+    transform: translate(-50%, -50%);
+    left:50%;
     position: absolute;
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 40%;
+    height: 10%;
     z-index: -500;
-    bottom: 0%;
-    right: 32%;
+    bottom: 10%;
     opacity: 0;
 
 
@@ -728,8 +731,8 @@ h1 {
 }
 
 .iconContact img {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
 }
 
 @keyframes floating {
