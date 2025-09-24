@@ -715,17 +715,12 @@ function disableCameraConstraints(controls) {
 }
 function enableCameraConstraints(controls) {
 
-    controls.minAzimuthAngle = -Infinity;
-    controls.maxAzimuthAngle = Infinity;
-    controls.minPolarAngle = 0;
-    controls.maxPolarAngle = Math.PI;
-    controls.minDistance = 0;
-    controls.maxDistance = Infinity;
-
-    controls.enableZoom = true;
+    controls.minAzimuthAngle = -30 * (Math.PI / 180);
+    controls.maxAzimuthAngle = -10 * (Math.PI / 180);
+    controls.minPolarAngle = Math.PI / 3;
+    controls.maxPolarAngle = Math.PI / 2.25;
+    controls.enableZoom =false;
     controls.enableRotate = true;
-
-    controls.enablePan = true;
 }
 const mediaQuery = window.matchMedia('(max-width: 600px)');
 
