@@ -11,7 +11,7 @@ let about_2;
 let nom;
 let description;
 
-let water;
+
 let tabs;
 let skill;
 let aboutMe;
@@ -29,7 +29,6 @@ let nav;
 let contactContainer;
 
 skill = document.querySelector('.skill')
-water = document.querySelector('.water')
 description = document.querySelector('.description')
 nom = document.querySelector('.nom')
 about_1 = document.querySelector('.about-1')
@@ -328,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resetnom()
         disableCameraConstraints(controls)
         disableLink();
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1, tabs, project1, project2, project3, project4, contactContainer);
 
         gsap.to(about_1, {
 
@@ -374,15 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     z: 0.6607309239446485,
                                     ease: "power1.inOut",
 
-                                }),
-                                    gsap.to(water, {
-                                        duration: 0.8,
-                                        opacity: 0.3,
-                                        zIndex: 500,
-                                        ease: "power1.inOut",
-
-                                    })
-
+                                })
                             },
                         })
                     }
@@ -425,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function () {
         disableCameraConstraints(controls)
         disableLink()
 
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1, tabs, project1, project2, project3, project4, contactContainer);
 
         gsap.to(camera.position, {
             
@@ -478,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
         disableCameraConstraints(controls)
         allprojet.style.pointerEvents = "auto"
         disableLink()
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1,tabs, project1, project2, project3, project4, contactContainer);
         gsap.to(camera.position, {
             duration: 1.5,
             x: -2.784138754994846,
@@ -539,7 +530,7 @@ document.addEventListener('DOMContentLoaded', function () {
         allprojet.style.pointerEvents = "none"
         disableLink()
 
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1,tabs, project1, project2, project3, project4, contactContainer);
         gsap.to(nom, {
             duration: 1.2,
             ease: "power2.out",
@@ -565,7 +556,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function contact() {
         disableCameraConstraints(controls)
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1,tabs, project1, project2, project3, project4, contactContainer);
 
         disableLink()
         gsap.to(camera.position, {
@@ -722,23 +713,4 @@ function enableCameraConstraints(controls) {
     controls.enableZoom =false;
     controls.enableRotate = true;
 }
-const mediaQuery = window.matchMedia('(max-width: 600px)');
 
-function handleScreenChange(e) {
-    if (e.matches) {
-        scene.remove(solar);
-    } else {
-        if (!scene.children.includes(solar)) {
-            scene.add(solar);
-        }
-    }
-}
-
-//Camera position: x=-1.4973069071497678, y=3.7856306672557234, z=4.5081692065007335
-handleScreenChange(mediaQuery);
-
-
-mediaQuery.addEventListener('change', handleScreenChange);
-
-window.addEventListener('resize', () => handleScreenChange(mediaQuery));
-window.addEventListener('load', () => handleScreenChange(mediaQuery));
