@@ -125,11 +125,7 @@ progress {
 .project4 {
     border-radius: 16px;
 }
-.videoholder {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
+
 
 .video-text {
     color: white;
@@ -215,27 +211,34 @@ progress {
 
 
 }
+h3.nice{
+    color: #007bff;
+
+}
 
 .video-popup video {
+    z-index: 700;
     position: absolute;
-    top: 28%;
+    height: 80%;
+    width: 80%;
     left: 50%;
-    height: 50%;
+    top:50%;
     transform: translate(-50%, -50%);
-    width: 750px;
+    display: none;
     border-radius: 5px;
     border: 3px solid white;
     object-fit: cover;
     box-shadow: 0 8px 16px rgb(255, 255, 255);
+    transition: ease-in-out 3s;
 }
+
 
 .video-popup .descriptionProjet {
     position: absolute;
-    top: 55%;
-    left: 16%;
-    width: 70%;
-    height: 40%;
-    border-radius: 170px;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
     padding: 90px;
     border: 5px solid #000000;
     overflow-y: scroll;
