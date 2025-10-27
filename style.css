@@ -378,21 +378,22 @@ progress {
     position: absolute;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100v;
     z-index: 500;
 
-
+ background-color: #303885;
 }
 
 .slider {
     margin-bottom: 10px;
+   
 }
 
 /* Slider animation*/
 .slider.deux {
     --width: 200px;
     --height: 250px;
-    --number-item: 4;
+    --number-item: 7;
     width: 100%;
     height: var(--height);
     overflow: hidden;
@@ -400,15 +401,23 @@ progress {
 }
 
 .slider.trois {
-    --width: 350px;
-    --height: 250px;
-    --number-item: 4;
+    --width: 200px;
+    --height: 150px;
+    --number-item: 8;
     width: 100%;
     height: var(--height);
     overflow: hidden;
 }
 
 .slider.quatre {
+    --width: 200px;
+    --height: 250px;
+    --number-item: 8;
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+}
+.slider.cinq {
     --width: 200px;
     --height: 250px;
     --number-item: 8;
@@ -434,13 +443,17 @@ progress {
     transition: .5s;
     filter: brightness(1);
     left: 100%;
-    animation: autoRun 10s linear infinite;
-    animation-delay: calc((10s / var(--number-item))* (var(--position) - 1));
+    animation: autoRun 15s linear infinite;
+    animation-delay: calc((15s / var(--number-item))* (var(--position) - 1));
 }
 
 .slider.trois .list .item {
-    animation: autoRun2 10s linear infinite;
-    animation-delay: calc((10s / var(--number-item))* (var(--position) - 1));
+    animation: autoRun2 15s linear infinite;
+    animation-delay: calc((15s / var(--number-item))* (var(--position) - 1));
+}
+.slider.cinq .list .item {
+    animation: autoRun2 15s linear infinite;
+    animation-delay: calc((15s / var(--number-item))* (var(--position) - 1));
 }
 
 
