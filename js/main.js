@@ -24,6 +24,9 @@ let project1;
 let project2;
 let project3;
 let project4;
+let project5;
+let project6;
+let projectGroup;
 let allprojet;
 let nav;
 let contactContainer;
@@ -44,6 +47,9 @@ project1 = document.querySelector('.project1')
 project2 = document.querySelector('.project2')
 project3 = document.querySelector('.project3')
 project4 = document.querySelector('.project4')
+project5 = document.querySelector('.project5')
+project6 = document.querySelector('.project6')
+projectGroup = document.querySelector('.projectGroup')
 allprojet = document.querySelector('.allProject')
 contactContainer = document.querySelector('.contactContainer')
 
@@ -328,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function () {
         resetnom()
         disableCameraConstraints(controls)
         disableLink();
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer,project5,projectGroup);
 
         gsap.to(about_1, {
 
@@ -425,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
         disableCameraConstraints(controls)
         disableLink()
 
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4,project5,project6,projectGroup,contactContainer);
 
         gsap.to(camera.position, {
             
@@ -478,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function () {
         disableCameraConstraints(controls)
         allprojet.style.pointerEvents = "auto"
         disableLink()
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4,project5,project6,projectGroup, contactContainer);
         gsap.to(camera.position, {
             duration: 1.5,
             x: -2.784138754994846,
@@ -499,28 +505,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         });
 
-
+                        gsap.to(projectGroup, {
+                            delay: 1.2,
+                            zIndex: 600,
+                            opacity:1
+                        })
                         gsap.to(project1, {
                             delay: 1.2,
                             zIndex: 500,
-                            opacity: 1,
+
 
                         })
                         gsap.to(project2, {
                             delay: 1.3,
                             zIndex: 500,
-                            opacity: 1,
+
 
                         })
                         gsap.to(project3, {
                             delay: 1.4,
                             zIndex: 500,
-                            opacity: 1
                         })
                         gsap.to(project4, {
+                            delay: 1.4,
+                            zIndex: 500,
+                        })
+                        gsap.to(project5, {
+                            delay: 1.4,
+                            zIndex: 500,
+                            opacity:1,
+                        })
+                        gsap.to(project6, {
                             delay: 1.5,
                             zIndex: 500,
-                            opacity: 1,
+                            opacity:1,
+
                             onComplete: function () {
 
                                 Home.style.pointerEvents = "auto"
@@ -539,7 +558,7 @@ document.addEventListener('DOMContentLoaded', function () {
         allprojet.style.pointerEvents = "none"
         disableLink()
 
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4,project5,project6,projectGroup, contactContainer);
         gsap.to(nom, {
             duration: 1.2,
             ease: "power2.out",
@@ -565,7 +584,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function contact() {
         disableCameraConstraints(controls)
-        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4, contactContainer);
+        resetElement(about_2, about_1, water, tabs, project1, project2, project3, project4,project5,project6,projectGroup, contactContainer);
 
         disableLink()
         gsap.to(camera.position, {
@@ -713,6 +732,38 @@ function disableCameraConstraints(controls) {
 
 
 }
+const radios = document.querySelectorAll('input[name="radio-group"]');
+  const projects = {
+    2025.1: ['.project5','.project6'],
+    2025.2: ['.project1'],
+    2024.1: ['.project4'],
+    2024.2: ['.project3','.project2'] 
+  };
+
+  function showProjectsFor(year) {
+    document.querySelectorAll('.allProject > div').forEach(div => {
+      div.style.opacity='0';
+      div.style.zIndex='-400';
+    });
+
+    if (projects[year] && project.style.pointerEvents == "none") {
+      projects[year].forEach(selector => {
+        const el = document.querySelector(selector);
+        if (el) el.style.opacity = '1';
+        el.style.zIndex = '500';
+      });
+    }
+  }
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', e => {
+      showProjectsFor(e.target.value);
+    });
+  });
+
+  // Show the initial one (based on the checked radio)
+  const checked = document.querySelector('input[name="radio-group"]:checked');
+  showProjectsFor(checked.value);
 function enableCameraConstraints(controls) {
 
     controls.minAzimuthAngle = -30 * (Math.PI / 180);
