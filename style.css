@@ -27,6 +27,23 @@ body {
     color: black;
 }
 
+.lang-switcher {
+    position: absolute;
+    right: 3%;
+    bottom: 2%;
+    z-index: 700;
+}
+
+.lang-switcher button {
+    background-color: transparent;
+    font-family: "IM Fell English SC", serif;
+    font-weight: 800;
+    width: 60px;
+    height: 60px;
+    border: none;
+    color: darkgreen;
+}
+
 label {
     color: darkgreen;
     font-family: "IM Fell English SC", serif;
@@ -62,10 +79,11 @@ progress {
     pointer-events: none;
     height: 100%;
     width: 100%;
-    
+
 
 
 }
+
 .project1,
 .project2,
 .project3,
@@ -81,9 +99,9 @@ progress {
 }
 
 .project1 {
-   left:5%;
+    left: 5%;
     bottom: 17%;
-    animation:floating  3s ease-in-out infinite;
+    animation: floating 3s ease-in-out infinite;
 
 
 }
@@ -91,27 +109,30 @@ progress {
 .project2 {
     left: 25%;
     bottom: 17%;
-    animation:floating2  3s ease-in-out infinite;
+    animation: floating2 3s ease-in-out infinite;
 
 }
+
 .project3 {
     left: 5%;
     bottom: 17%;
-    animation:floating3  3s ease-in-out infinite;
+    animation: floating3 3s ease-in-out infinite;
 }
 
 .project4 {
-    right:65%;
+    right: 65%;
     bottom: 15%;
-    animation:floating3  3s ease-in-out infinite;
+    animation: floating3 3s ease-in-out infinite;
 }
+
 .project5 {
-    animation:floating2  3s ease-in-out infinite;
-    left:25%;
+    animation: floating2 3s ease-in-out infinite;
+    left: 25%;
     bottom: 15%;
 }
+
 .project6 {
-    left:5%;
+    left: 5%;
     bottom: 15%;
 }
 
@@ -185,46 +206,50 @@ progress {
 
 
 }
-.projectGroup{
+
+.projectGroup {
     z-index: -30;
     position: absolute;
     top: 20%;
     left: 10%;
 }
-.projectGroup p label{
+
+.projectGroup p label {
     color: white;
     font-size: 40px;
     margin-left: 20px;
-    
+
 }
-.projectGroup p input{
+
+.projectGroup p input {
     font-size: 2em;
-    
+
 }
+
 input[type="radio"] {
-    appearance: none; 
+    appearance: none;
     -webkit-appearance: none;
-    width: 25px;            
+    width: 25px;
     height: 25px;
-    border: 2px solid #555; 
+    border: 2px solid #555;
     border-radius: 50%;
     cursor: pointer;
     position: relative;
     transition: all 0.2s ease;
-    border-color: #e0dee7; 
+    border-color: #e0dee7;
     background-color: #ffffff;
-  }
-  
-  input[type="radio"]:checked  {
-    border-color: #e0dee7; 
-    background-color: #080808; 
-  }
-  
+}
 
-  .externalIcon{
+input[type="radio"]:checked {
+    border-color: #e0dee7;
+    background-color: #080808;
+}
+
+
+.externalIcon {
     width: 40px;
     height: 40px;
-  }
+}
 
 .video-popup video {
     z-index: 700;
@@ -232,7 +257,7 @@ input[type="radio"] {
     height: 60%;
     width: 85%;
     left: 50%;
-    bottom:6%;
+    bottom: 6%;
     transform: translate(-50%, 0);
     /*border-radius: 5px;
     border: 3px solid white;
@@ -394,12 +419,12 @@ input[type="radio"] {
 
 
 .allCard {
-    
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     object-fit: contain;
-    
+
 }
 
 .card {
@@ -426,10 +451,10 @@ input[type="radio"] {
 .card:hover {
     backdrop-filter: blur(30px);
     transition: ease-in-out 0.3s;
-    transform:  scale(1.2) ;
+    transform: scale(1.2);
     border: #000000 solid 4.8px;
     background: linear-gradient(to bottom, #679f69, #56b4d4);
- 
+
     color: white;
     z-index: 4;
 }
@@ -443,7 +468,8 @@ input[type="radio"] {
     margin-right: auto;
 
 }
-.logoProject{
+
+.logoProject {
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -481,19 +507,19 @@ input[type="radio"] {
     left: 50%;
     top: 20%;
     transform: translate(-50%, 0%);
-   
-  
+
+
     padding: 40px 50px 80px;
     width: 70%;
     height: 70%;
     min-width: 240px;
-   
+
     border-radius: 20px;
- 
+
     transition: all 0.3s ease-in-out;
     opacity: 1;
     z-index: -4;
-  }
+}
 
 .tabs input[name="tab-control"] {
     display: none;
@@ -707,7 +733,7 @@ input[type="radio"] {
     display: flex;
     justify-content: center;
     transform: translate(-50%, -50%);
-    left:50%;
+    left: 50%;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -764,6 +790,7 @@ h1 {
         transform: translate(0, -0px);
     }
 }
+
 @keyframes floating2 {
     0% {
         transform: translate(0, 0px);
@@ -777,6 +804,7 @@ h1 {
         transform: translate(0, -0px);
     }
 }
+
 @keyframes floating3 {
     0% {
         transform: translate(0, 0px);
@@ -827,11 +855,11 @@ h1 {
 }
 
 @media only screen and (max-width: 800px) {
-    
+
 
 
     .main-nav ul li a {
-        font-size: 20px;
+        font-size: 17px;
         /* Adjust font size for smaller screens */
     }
 
@@ -844,6 +872,7 @@ h1 {
     .about-2 {
         padding-top: 20px;
         font-size: 5.17vw;
+        right: 29%;
     }
 
 }
@@ -851,7 +880,7 @@ h1 {
 @media only screen and (max-width: 400px) {
 
     .main-nav ul li a {
-        font-size: 18px;
+        font-size: 15px;
         /* Adjust font size for smaller screens */
     }
 }
@@ -888,12 +917,14 @@ h1 {
 
     }
 
+
 }
 
 @media screen and (max-width: 600px) {
-    .logoProject{
+    .logoProject {
         width: 100%;
     }
+
     .logo {
 
         top: 65px;
